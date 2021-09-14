@@ -10,13 +10,30 @@ public class Programa {
     //*************************************************************************
     //Declaracion de variables
     //*************************************************************************
+    private String nombre;
+    private int espacio;
+    private int tiempo;
 
     //*************************************************************************
     //Constructores
     //*************************************************************************
-
+    public Programa(String nombre, int espacio, int tiempo){
+        this.nombre = nombre;
+        this.espacio = espacio;
+        this.tiempo = tiempo;
+    }
     //*************************************************************************
     //Metodos
     //*************************************************************************
+    public String getNombre(){
+        return nombre;
+    }
     
+    public int getEspacio(){
+        return espacio;
+    }
+    
+    public int getTiempo(){
+        return tiempo;
+    }
 }
