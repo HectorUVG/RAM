@@ -55,13 +55,13 @@ public class Vista {
         tamanio = scan.nextInt();
         return tamanio;
     }
-
+/*
     public int cantidadProgramas(){
         int cantidad = 0;
         System.out.println("Escriba la cantidad de programas que desea ingresar:");
         cantidad = scan.nextInt();
         return cantidad;
-    }
+    }*/
 
     public String nombrePrograma(){
         String nombre = "";
@@ -72,7 +72,7 @@ public class Vista {
 
     public int tamanioPrograma(){
         int tamanio = 0;
-        System.out.println("Escriba el tamanio del programa: ");
+        System.out.println("Escriba el tamanio (GB) del programa: ");
         tamanio = scan.nextInt();
         return tamanio;
     }
@@ -83,7 +83,22 @@ public class Vista {
         ciclos = scan.nextInt();
         return ciclos;
     }
+    
+    public void RAMTotal(){
+        System.out.println("El tamanio de su memoria (GB) es de: " );
+    }
+    
+    public void RAMOcupada(){
+        System.out.println("El espacio ocupado (GB) es de: " );
+    }
 
+    public void RAMDisponible(){
+        System.out.println("El espacio disponible (GB) es de: " );
+    }
+
+    public void enEjecucion(){
+        System.out.println("Los programas en ejecucion son: " );
+    }
     
     
     

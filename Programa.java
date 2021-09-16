@@ -19,7 +19,7 @@ public class Programa {
     //*************************************************************************
     public Programa(String nombre, int espacio, int tiempo){
         this.nombre = nombre;
-        this.espacio = espacio;
+        this.espacio = espacio*1024/64;
         this.tiempo = tiempo;
     }
     //*************************************************************************
