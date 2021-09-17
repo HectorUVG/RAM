@@ -8,14 +8,18 @@
 public class Controlador {
     public static void main(String[] args){
         Vista vis = new Vista();
-        //vis.menu();// imprime el menu
-        // variable opcion para el menu de opciones
+       
         int opc = 0;
+
+        vis.menu();// imprime el menu
+        // variable opcion para el menu de opciones
+
+        opc = vis.menu();//guarda la opcion del usuario en la variable opc
+        
         //bucle while para que no pare el programa a menos que el usuario quiera
         while(opc != 11){
-            vis.menu();// imprime el menu
-            // variable opcion para el menu de opciones
-
+            
+           
             switch(opc){
                 case 1://Crear nueva RAM
                     vis.tipoRAM();//pregunta que  tipo de ram se usara
@@ -28,7 +32,6 @@ public class Controlador {
                         Memoria SDR = new Memoria(); 
                         SDR.setBloques(tamaniobloques);//crea el array de largo especifico
                     }
-                    vis.menu2();
                 case 2://ingresar programa nuevo
                 case 3://Ver espacio total de la memoria
                 case 4://Ver espacio disponible
@@ -38,6 +41,7 @@ public class Controlador {
                 case 8://Observar cuantos bloques ocupa un programa
                 case 9://Ver estado de la memoria
                 case 10://Realizar ciclo de reloj
+                vis.menu2();
             }
         }
 
