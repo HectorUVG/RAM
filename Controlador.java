@@ -8,11 +8,13 @@
 public class Controlador {
     public static void main(String[] args){
         Vista vis = new Vista();
-        vis.menu();// imprime el menu
+        //vis.menu();// imprime el menu
         // variable opcion para el menu de opciones
         int opc = 0;
         //bucle while para que no pare el programa a menos que el usuario quiera
         while(opc != 11){
+            vis.menu();// imprime el menu
+            // variable opcion para el menu de opciones
 
             switch(opc){
                 case 1://Crear nueva RAM
