@@ -13,6 +13,8 @@ public class Programa {
     private String nombre;
     private int espacio;
     private int tiempo;
+    private int divisionBloques = 0;
+    private int cocienteBloques = 0;
 
     //*************************************************************************
     //Constructores
@@ -36,4 +38,35 @@ public class Programa {
     public int getTiempo(){
         return tiempo;
     }
+
+    public int cicloReloj(){//se ejecutara cada vez que el usuario realize un ciclo
+        if(this.tiempo != 0){
+            this.tiempo = this.tiempo - 1;
+        }
+        if(this.tiempo == 0){
+            this.tiempo = 0;
+        }
+        return this.tiempo;
+    }
+
+    public void divisionBloques(){//hace la conversion de MB a bloques 
+        this.divisionBloques = espacio/64;
+    }
+
+    public void cociente(){//verifica si hay un cociente, si lo hay, le suma 1 a la 
+        //division, esto para crear un bloque adicional
+        this.cocienteBloques = espacio % 64;
+        if (this.cocienteBloques != 0){
+            this.divisionBloques = divisionBloques + 1;
+        }
+    }
+
+    public int bloquesQueOcupa(){//obtenemos el numero de bloques que requiere el programa
+        return divisionBloques;
+    }
+
+
+
+
 }
+
