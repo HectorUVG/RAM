@@ -43,37 +43,59 @@ public class Controlador {
 
                                         Programa prog = new Programa(nombre, tamanioPrograma, ciclosPrograma);//se crea un nuevo objeto de tipo programa
 
+                                        prog.divisionBloques();//realiza la division para conocer cuantos bloques que ocupa, sin contar el cociente
+                                        prog.cociente();//obtiene el cociente
                                         int cantBloques = prog.bloquesQueOcupa();//guarda la cantidad de bloques que ocupa en el array bloques en la variable cantBloques
                                         String nom = prog.getNombre();//obtiene el nombre del programa mediante un getter
-
+                                        
+                                        //vis.pruevaDivisBloques(cantBloques);//!!!!!!!!!!!!!!!!!!! PRUEBA!!!!!!!!!!!!!!!!!!!!!!
                                         SDR.aniadirPrograma(prog);//ejecuta el metodo aniadir programa y mete el programa al array
                                         SDR.ocuparBloques(prog, cantBloques, nom);//realiza lo descrito en el metodo en su clase para ingresar el nombre en el arraylist bloques
-
+                                        SDR.noRepetidos(prog, nom);//guarda el nombre del programa en otro arreglo donde no se repite
+                                        SDR.ciclosPorPrograma(prog, ciclosPrograma);
                                         break;
 
                                     case 2://Ver espacio total de la memoria
                                         vis.RAMTotal(tamaniobloques*64/1024);
                                         break;
                                     case 3://Ver espacio disponible
-
+                                        vis.RAMDisponible(SDR.espacioDisponibleEnGB());
                                         break;
                                     case 4://Ver espacio en uso
                                         vis.RAMOcupada(SDR.espacioEnGB());//multiplica el tamanio del arraylist bloques por 64 y lo divide entre 1024 
                                         break;
                                     case 5://Ver programas en ejecucion
                                         //for(Programa i; i < Programa.length;  )
+                                        vis.enEjecucion(SDR.getProgramasEnEjecucion());
                                         break;
                                     case 6://Ver programas en cola
 
                                         break;
                                     case 7://Observar cuantos bloques ocupa un programa
+                                        String programaParaFreq = vis.freqPrograma();
+                                        int numbloques = SDR.frecuencia(programaParaFreq);
+                                        vis.freqPrograma2(programaParaFreq, numbloques);
+                                       // vis.sizeBloques(SDR.getEspacioOcupado());
+                                        //vis.imprimirString(SDR.casillaBloque(2));
 
                                         break;
                                     case 8://Ver estado de la memoria
                                         vis.estadoMemoria(SDR.getbloques());
                                         break;
                                     case 9://Realizar ciclo de reloj
+                                       /* for(int i = 0; i < SDR.programasEnEjecucion.size(); i++ ){
 
+                                            if(SDR.ciclosDeCadaPrograma.get(i) != 0){
+                                                int ciclo = SDR.ciclosDeCadaPrograma.get(i);
+                                                ciclo = ciclo - 1;
+                                                SDR.ciclosDeCadaPrograma.get(i) = ciclo;
+                                            }
+                                            if(SDR.ciclosDeCadaPrograma.get(i) == 0){
+                                                SDR.programasEnEjecucion.get(i).
+                                            }
+
+                                        
+                                        }*/
                                         break;
                                 }
                         

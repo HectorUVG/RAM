@@ -105,17 +105,18 @@ public class Vista {
     }
     
     public void RAMOcupada(Float tamanio){
-        System.out.println("El espacio ocupado (GB) es de: " + tamanio + "GB" );
+        System.out.println("El espacio ocupado (GB) es de: " + tamanio + " GB" );
         System.out.println("");
     }
 
-    public void RAMDisponible(){
-        System.out.println("El espacio disponible (GB) es de: " );
+    public void RAMDisponible(Float disponible){
+        System.out.println("El espacio disponible (GB) es de: " + disponible + " GB" );
         System.out.println("");
     }
 
-    public void enEjecucion(){
+    public void enEjecucion(List<String> pro){
         System.out.println("Los programas en ejecucion son: " );
+        System.out.println(pro);
         System.out.println("");
     }
 
@@ -124,7 +125,36 @@ public class Vista {
         System.out.println(mem);
         System.out.println("");
     }
+
+    public String freqPrograma(){
+        System.out.println("Escriba el programa del cual quiere conocer el espacio que ocupa: ");
+        String prog = scan.next();
+        System.out.println("");
+        return prog;
+    }
+
+    public void freqPrograma2(String nombreProg, int freq){
+        System.out.println( nombreProg + " ocupa " + freq + " bloques de memoria");
+        System.out.println("");
+    }
     
+    //*********************************************************
+    //pruebas
+    //************************************************************
     
-    
+    public void pruevaDivisBloques(int bloquesqueocupa){
+        System.out.println(bloquesqueocupa);
+        System.out.println("");
+    }
+
+    public void sizeBloques(int bloquesfreq){
+        System.out.println(bloquesfreq);
+        System.out.println("");
+    }
+
+    public void imprimirString (String x){
+        System.out.println(x);
+        System.out.println("");
+    }
+
 }

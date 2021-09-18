@@ -39,14 +39,13 @@ public class Programa {
         return tiempo;
     }
 
-    public int cicloReloj(){//se ejecutara cada vez que el usuario realize un ciclo
+    public void cicloReloj(){//se ejecutara cada vez que el usuario realize un ciclo
         if(this.tiempo != 0){
             this.tiempo = this.tiempo - 1;
         }
         if(this.tiempo == 0){
             this.tiempo = 0;
         }
-        return this.tiempo;
     }
 
     public void divisionBloques(){//hace la conversion de MB a bloques 

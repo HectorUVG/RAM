@@ -21,6 +21,12 @@ public class Memoria {
     List<String> bloques = new ArrayList<>(largoArray);//sirve para llenar, con el nombre
     //del programa, la cantidad de bloques equivalente al espacio que ocupa en MB
 
+    List<String> programasNoRepetidos = new ArrayList<>(largoArray);//sirve para llenar, con el nombre
+    //del programa, la cantidad de bloques equivalente al espacio que ocupa en MB
+
+    List<Integer> ciclosDeCadaPrograma = new ArrayList<>(largoArray);//sirve para guardar y manipular los
+    //ciclos de reloj de cada programa, aprovechando que se guardan en el mismo orden
+
 
 
     //*************************************************************************
@@ -63,12 +69,12 @@ public class Memoria {
         return espaciosOcupados;
     }*/
 
-    public int espacioDisponible(){
+    public float espacioDisponibleEnGB(){
         /**
          * Se le resta el espacio ocupado al espacio total para obtener 
          * el espacio disponible
          */
-        espaciosDisponibles = programasEnEjecucion.size() - espaciosOcupados;
+        float espaciosDisponibles = largoArray*64/1024 - espacioEnGB();
         return espaciosDisponibles;
     }
 
@@ -93,9 +99,63 @@ public class Memoria {
         }
     }
 
-    public List <String> getbloques(){
+    public void noRepetidos(Programa progra, String nombre){//aniade strings nombre sin repetir, esto sirve cuando nos pide
+        //mostrar unicamente que programas se ejecutan, sin mostrar repeticiones
+        if(programasEnEjecucion.contains(progra)){
+            programasNoRepetidos.add(nombre);
+        }
+    }
+
+    public void ciclosPorPrograma(Programa progra, int ciclos){//aniade strings nombre sin repetir, esto sirve cuando nos pide
+        //mostrar unicamente que programas se ejecutan, sin mostrar repeticiones
+        if(programasEnEjecucion.contains(progra)){
+            ciclosDeCadaPrograma.add(ciclos);
+        }
+    }
+
+    public List <String> getbloques(){//getter del array bloques
         return this.bloques;
     }
+
+    public List <String> getProgramasEnEjecucion(){//getter
+        return this.programasNoRepetidos;
+    }
+
+    public List <Programa> getArrayDeProgramas(){//getter
+        return this.programasEnEjecucion;
+    }
+
+    public int frecuencia(String programa){
+        /**
+         * cada vez que el String programa aparezca en el array, se le suma 1 al contador, 
+         * asi obtenemos la cantidad de bloques que ocupa
+         */
+        int cont = 0;
+        for(int i = 0; i < bloques.size(); i++){
+            
+            if(bloques.get(i).equals(programa)){//.equals(programa) funciono, y == programa no.
+                cont = cont + 1;
+            }
+        }
+        return cont;
+    }
+
+    public String casillaBloque(int i){
+        return bloques.get(i);
+    }
+/*
+    public void cicloDeReloj(int tiempoReloj){
+        for(int i = 0; i < programasEnEjecucion.size(); i++ ){
+
+            if(tiempoReloj != 0){
+                tiempoReloj--;
+            }
+            if(tiempoReloj ==0){
+
+            }
+
+        }
+    }*/
 
 }   
 
